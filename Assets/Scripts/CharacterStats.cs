@@ -1,0 +1,93 @@
+using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UIElements;
+
+public class CharacterStats : MonoBehaviour
+{
+    private SpriteRenderer spriteRenderer;
+
+    //Set character's max health and current health
+    [Header("Health Stats")]
+    public int maxHealth = 10;
+    public int currentHealth;
+
+
+    //Health UI
+    [Header("Health UI")]
+    [SerializeField] TextMeshProUGUI CharacterHealthText;
+    [SerializeField] GameObject menuUI;
+    // Reference to the Healthbar script to update the UI
+    public Healthbar healthbar;
+
+
+    //Visualises the character taking damage
+    [SerializeField] private float hurtDuration;
+    [SerializeField] private int numberOfFlashes;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        // Initialize current health to max health at the start
+        currentHealth = maxHealth;
+        CharacterHealthText.text = currentHealth + "/" + maxHealth;
+
+
+        // Set the health bar to reflect the max health
+        healthbar.SetMaxHealth(maxHealth);
+
+        Color healthColor = Color.green; // Default color for full health
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        CharacterHealthText.text = currentHealth + "/" + maxHealth;
+
+        // For testing purposes, reduce health when the space key is pressed
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(1);
+        }
+    }
+
+    // Method to reduce health when the character takes damage
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        Debug.Log("Character took damage. Current health: " + currentHealth);
+
+        // Update the health bar to reflect the new health value
+        healthbar.SetHealth(currentHealth);
+
+        StartCoroutine(DamageFlash());
+
+        // Check if the character's health has dropped to zero or below
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+
+    void Die()
+    {
+        Debug.Log("Character died.");
+        // Add death logic here (e.g., respawn, game over, etc.)
+    }
+
+
+    // Coroutine to handle the damage flash effect
+    private IEnumerator DamageFlash()
+    {
+        for (int i = 0; i < numberOfFlashes; i++)
+        {
+            spriteRenderer.color = new Color(1, 0, 0, 0.5f);
+            yield return new WaitForSeconds(hurtDuration / (numberOfFlashes * 2));
+            spriteRenderer.color = Color.white;
+            yield return new WaitForSeconds(hurtDuration / (numberOfFlashes * 2));
+        }
+    }
+}
+
+
