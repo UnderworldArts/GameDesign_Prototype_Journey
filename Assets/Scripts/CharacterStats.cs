@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class CharacterStats : MonoBehaviour
@@ -11,7 +12,6 @@ public class CharacterStats : MonoBehaviour
     [Header("Health Stats")]
     public int maxHealth = 10;
     public int currentHealth;
-
 
     //Health UI
     [Header("Health UI")]
@@ -24,6 +24,20 @@ public class CharacterStats : MonoBehaviour
     //Visualises the character taking damage
     [SerializeField] private float hurtDuration;
     [SerializeField] private int numberOfFlashes;
+
+
+    //Set character's class and stats
+    [Header("Character Stats")]
+    public string characterClass;
+    public int muscle;
+    public int relfex;
+    public int smarts;
+    public int magics;
+
+    //Stats UI
+    [Header("Character Stats UI")]
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
