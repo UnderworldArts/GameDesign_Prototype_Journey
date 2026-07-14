@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 101746734}
   - component: {fileID: 101746733}
   m_Layer: 5
-  m_Name: CharacterStatText
+  m_Name: CharacterClassText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 389223048}
   - component: {fileID: 389223047}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: ClassDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1088,6 +1088,8 @@ MonoBehaviour:
   relfex: 0
   smarts: 0
   magics: 0
+  dropdown: {fileID: 389223048}
+  classText: {fileID: 101746733}
 --- !u!212 &484914391
 SpriteRenderer:
   m_ObjectHideFlags: 0

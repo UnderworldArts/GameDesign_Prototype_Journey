@@ -34,9 +34,9 @@ public class CharacterStats : MonoBehaviour
     public int smarts;
     public int magics;
 
-    //Stats UI
 
-
+    public TMP_Dropdown dropdown;
+    [SerializeField] TextMeshProUGUI classText;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -56,6 +56,9 @@ public class CharacterStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        GetDropdownValue();
+
         CharacterHealthText.text = currentHealth + "/" + maxHealth;
 
         // For testing purposes, reduce health when the space key is pressed
@@ -63,6 +66,17 @@ public class CharacterStats : MonoBehaviour
         {
             TakeDamage(1);
         }
+    }
+
+
+    // This method retrieves the selected value from the dropdown and logs it to the console
+    public void GetDropdownValue()
+    {
+        int pickedEntryIndex = dropdown.value;
+        string selectedOption = dropdown.options[pickedEntryIndex].text;
+
+        classText.text = "Class: " + selectedOption;
+        Debug.Log("Selected Class: " + selectedOption);
     }
 
     // Method to reduce health when the character takes damage
