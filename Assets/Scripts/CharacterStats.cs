@@ -136,7 +136,9 @@ public class CharacterStats : MonoBehaviour
             smarts = 5;
             magics = 5;
         }
-        
+
+
+        //Update stat visuals for dev purposes
         muscleText.text = "Muscle: " + muscle;
         reflexText.text = "Reflex: " + relfex;
         smartsText.text = "Smarts: " + smarts;
