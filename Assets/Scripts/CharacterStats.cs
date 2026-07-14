@@ -35,8 +35,14 @@ public class CharacterStats : MonoBehaviour
     public int magics;
 
 
+    //Class UI
+    [Header("Class UI")]
     public TMP_Dropdown dropdown;
     [SerializeField] TextMeshProUGUI classText;
+    [SerializeField] TextMeshProUGUI muscleText;
+    [SerializeField] TextMeshProUGUI reflexText;
+    [SerializeField] TextMeshProUGUI smartsText;
+    [SerializeField] TextMeshProUGUI magicsText;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,6 +64,7 @@ public class CharacterStats : MonoBehaviour
     {
 
         GetDropdownValue();
+        SetStats();
 
         CharacterHealthText.text = currentHealth + "/" + maxHealth;
 
@@ -79,9 +86,66 @@ public class CharacterStats : MonoBehaviour
         Debug.Log("Selected Class: " + selectedOption);
     }
 
-    // Method to reduce health when the character takes damage
-    void TakeDamage(int damage)
+    public void SetStats()
     {
+        if (dropdown.value == 0)//Fighter
+        {
+            maxHealth = 10;
+            muscle = 10;
+            relfex = 5;
+            smarts = 3;
+            magics = 1;
+        }
+        else if (dropdown.value == 1)//Mage
+        {
+            maxHealth = 5;
+            muscle = 1;
+            relfex = 5;
+            smarts = 10;
+            magics = 10;
+        }
+        else if (dropdown.value == 2)//Rogue
+        {
+            maxHealth = 8;
+            muscle = 5;
+            relfex = 10;
+            smarts = 5;
+            magics = 3;
+        }
+        else if (dropdown.value == 3)//Tank
+        {
+            maxHealth = 20;
+            muscle = 8;
+            relfex = 3;
+            smarts = 3;
+            magics = 3;
+        }
+        else if (dropdown.value == 4)//Priest
+        {
+            maxHealth = 15;
+            muscle = 3;
+            relfex = 3;
+            smarts = 8;
+            magics = 10;
+        }
+        else if (dropdown.value == 5)//Average Joe
+        {
+            maxHealth = 10;
+            muscle = 5;
+            relfex = 5;
+            smarts = 5;
+            magics = 5;
+        }
+        
+        muscleText.text = "Muscle: " + muscle;
+        reflexText.text = "Reflex: " + relfex;
+        smartsText.text = "Smarts: " + smarts;
+        magicsText.text = "Magics: " + magics;
+    }
+
+        // Method to reduce health when the character takes damage
+        void TakeDamage(int damage)
+        {
         currentHealth -= damage;
         Debug.Log("Character took damage. Current health: " + currentHealth);
 

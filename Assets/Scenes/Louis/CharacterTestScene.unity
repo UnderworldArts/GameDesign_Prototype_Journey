@@ -1090,6 +1090,10 @@ MonoBehaviour:
   magics: 0
   dropdown: {fileID: 389223048}
   classText: {fileID: 101746733}
+  muscleText: {fileID: 1290940190}
+  reflexText: {fileID: 1219150956}
+  smartsText: {fileID: 1382731969}
+  magicsText: {fileID: 323315107}
 --- !u!212 &484914391
 SpriteRenderer:
   m_ObjectHideFlags: 0
