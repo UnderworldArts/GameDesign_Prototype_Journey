@@ -33,11 +33,11 @@ public class Inventory2 : MonoBehaviour
 
                 //Debug.Log(itemNameBackup);
 
-                inventoryContentString2 = inventoryContentString2.Replace(itemNameBackup, itemNameBackup2);
+                //inventoryContentString2 = inventoryContentString2.Replace(itemNameBackup, itemNameBackup2);
                 inventoryContentString = inventoryContentString.Replace(inventoryContentString2, inventoryContentString3);
 
                 Debug.Log(inventoryContentString2);
-                //inventoryContentString += inventoryContentString2;
+                //inventoryContentString += inventoryContentString2; - Commented out due to warning
                 inventoryContentString2 = "\n" + noItem + " " + itemName;
 
                 inventoryContentText.text = inventoryContentString;
@@ -47,8 +47,9 @@ public class Inventory2 : MonoBehaviour
                 //Debug.Log($"The word '{itemName}' does not exist in the sentence.");
                 inventoryContentString += "\n" + noItem + " " + itemName;
                 inventoryContentString2 = "\n" + noItem + " " + itemName;
-                itemNameBackup = itemName;
-                Debug.Log(itemNameBackup);
+
+                //itemNameBackup = itemName; - Commented out due to warning 
+                Debug.Log("itemNameBackup");
 
                 inventoryContentText.text = inventoryContentString;
             }
