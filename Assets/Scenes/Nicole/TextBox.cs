@@ -6,12 +6,21 @@ public class TextBox : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI genText; // the text game object itself
     private Coroutine typingCoroutine; // Coroutine that types the string over the course of a few seconds
-    private Coroutine clearCoroutine; // Coroutine that 
     private AudioSource source; // nickname for the text sound effect
 
     void Start()
     {
         source = GetComponent<AudioSource>(); // assigns as the audiosource from the game object the script is on
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Spacebar");
+            TextClear();
+            // some if logic for when it is multiple lines sent in sequence - if necessary
+        }
     }
 
     public void ShowText(string forTextBox) // function triggered through the other scripts passing through the string in brackets
@@ -46,5 +55,14 @@ public class TextBox : MonoBehaviour
         {
             Debug.LogWarning("No audio source on game object");
         }
+    }
+
+    public void TextClear()
+    {
+        if (typingCoroutine != null) // Stop ongoing coroutines
+        {
+            StopCoroutine(typingCoroutine);
+        }
+        genText.text = "";
     }
 }
