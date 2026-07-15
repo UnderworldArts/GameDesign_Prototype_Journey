@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class ReadyButton : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    [SerializeField] private CharacterStats character; // Reference to the CharacterStats script
+
+
+    public void ReadyClicked()
     {
-        
+        Debug.Log("Ready button clicked!");
+
+        // Call the GetReady() method in the CharacterStats script
+        character.GetReady();
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

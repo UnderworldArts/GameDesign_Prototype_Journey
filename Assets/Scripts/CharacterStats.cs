@@ -46,13 +46,13 @@ public class CharacterStats : MonoBehaviour
 
     //Temporary start menu UI
     bool isReady = false;
-    [SerializeField] UnityEngine.UI.Button readyButton;
+    public GameObject charSelectUI; // Reference to the character selection UI
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         isReady = false;
-        readyButton.gameObject.SetActive(true);
+        charSelectUI.gameObject.SetActive(true);
 
         // Initialize current health to max health at the start
         currentHealth = maxHealth;
@@ -67,7 +67,8 @@ public class CharacterStats : MonoBehaviour
 
     public void GetReady()
     {
-       isReady = true;
+        isReady = true;
+        charSelectUI.SetActive(false);
     }
 
 
@@ -86,11 +87,7 @@ public class CharacterStats : MonoBehaviour
             TakeDamage(1);
         }
 
-        if(readyButton.gameObject.activeSelf && isReady)
-        {
-            readyButton.gameObject.SetActive(false);
-            menuUI.SetActive(false);
-        }
+
     }
 
 
