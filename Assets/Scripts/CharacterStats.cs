@@ -110,6 +110,7 @@ public class CharacterStats : MonoBehaviour
             relfex = 5;
             smarts = 3;
             magics = 1;
+            currentHealth = maxHealth; // Reset current health to max health when class is changed
         }
         else if (dropdown.value == 1)//Mage
         {
@@ -118,6 +119,7 @@ public class CharacterStats : MonoBehaviour
             relfex = 5;
             smarts = 10;
             magics = 10;
+            currentHealth = maxHealth; // Reset current health to max health when class is changed
         }
         else if (dropdown.value == 2)//Rogue
         {
@@ -126,6 +128,7 @@ public class CharacterStats : MonoBehaviour
             relfex = 10;
             smarts = 5;
             magics = 3;
+            currentHealth = maxHealth; // Reset current health to max health when class is changed
         }
         else if (dropdown.value == 3)//Tank
         {
@@ -134,6 +137,7 @@ public class CharacterStats : MonoBehaviour
             relfex = 3;
             smarts = 3;
             magics = 3;
+            currentHealth = maxHealth; // Reset current health to max health when class is changed
         }
         else if (dropdown.value == 4)//Priest
         {
@@ -142,6 +146,7 @@ public class CharacterStats : MonoBehaviour
             relfex = 3;
             smarts = 8;
             magics = 10;
+            currentHealth = maxHealth; // Reset current health to max health when class is changed
         }
         else if (dropdown.value == 5)//Average Joe
         {
@@ -150,6 +155,7 @@ public class CharacterStats : MonoBehaviour
             relfex = 5;
             smarts = 5;
             magics = 5;
+            currentHealth = maxHealth; // Reset current health to max health when class is changed
         }
 
 
