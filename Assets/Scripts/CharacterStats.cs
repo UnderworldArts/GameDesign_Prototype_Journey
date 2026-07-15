@@ -44,10 +44,16 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] TextMeshProUGUI smartsText;
     [SerializeField] TextMeshProUGUI magicsText;
 
+    //Temporary start menu UI
+    bool isReady = false;
+    [SerializeField] UnityEngine.UI.Button readyButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        isReady = false;
+        readyButton.gameObject.SetActive(true);
+
         // Initialize current health to max health at the start
         currentHealth = maxHealth;
         CharacterHealthText.text = currentHealth + "/" + maxHealth;
@@ -58,6 +64,12 @@ public class CharacterStats : MonoBehaviour
 
         Color healthColor = Color.green; // Default color for full health
     }
+
+    public void GetReady()
+    {
+       isReady = true;
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -72,6 +84,12 @@ public class CharacterStats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(1);
+        }
+
+        if(readyButton.gameObject.activeSelf && isReady)
+        {
+            readyButton.gameObject.SetActive(false);
+            menuUI.SetActive(false);
         }
     }
 
