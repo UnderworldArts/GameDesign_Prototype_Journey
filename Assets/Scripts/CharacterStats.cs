@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 
 public class CharacterStats : MonoBehaviour
 {
+    public Character[] characters;
+    public Character chosenCharacter;
+
     private SpriteRenderer spriteRenderer;
 
     //Set character's max health and current health
@@ -103,60 +106,72 @@ public class CharacterStats : MonoBehaviour
 
     public void SetStats()
     {
-        if (dropdown.value == 0)//Fighter
-        {
-            maxHealth = 10;
-            muscle = 10;
-            relfex = 5;
-            smarts = 3;
-            magics = 1;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
-        else if (dropdown.value == 1)//Mage
-        {
-            maxHealth = 5;
-            muscle = 1;
-            relfex = 5;
-            smarts = 10;
-            magics = 10;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
-        else if (dropdown.value == 2)//Rogue
-        {
-            maxHealth = 8;
-            muscle = 5;
-            relfex = 10;
-            smarts = 5;
-            magics = 3;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
-        else if (dropdown.value == 3)//Tank
-        {
-            maxHealth = 20;
-            muscle = 8;
-            relfex = 3;
-            smarts = 3;
-            magics = 3;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
-        else if (dropdown.value == 4)//Priest
-        {
-            maxHealth = 15;
-            muscle = 3;
-            relfex = 3;
-            smarts = 8;
-            magics = 10;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
-        else if (dropdown.value == 5)//Average Joe
-        {
-            maxHealth = 10;
-            muscle = 5;
-            relfex = 5;
-            smarts = 5;
-            magics = 5;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
+        chosenCharacter = characters[dropdown.value];
+
+        maxHealth = chosenCharacter.maxHealth;
+        currentHealth = maxHealth;
+        muscle = chosenCharacter.muscle;
+        relfex = chosenCharacter.reflex;
+        smarts = chosenCharacter.smarts;
+        magics = chosenCharacter.magics;
+
+
+        //rest
+
+        //if (dropdown.value == 0)//Warrior
+        //{
+        //    maxHealth = 10;
+        //    muscle = 10;
+        //    relfex = 5;
+        //    smarts = 3;
+        //    magics = 1;
+        //    currentHealth = maxHealth; // Reset current health to max health when class is changed
+        //}
+        //else if (dropdown.value == 1)//Mage
+        //{
+        //    maxHealth = 5;
+        //    muscle = 1;
+        //    relfex = 5;
+        //    smarts = 10;
+        //    magics = 10;
+        //    currentHealth = maxHealth; // Reset current health to max health when class is changed
+        //}
+        //else if (dropdown.value == 2)//Rogue
+        //{
+        //    maxHealth = 8;
+        //    muscle = 5;
+        //    relfex = 10;
+        //    smarts = 5;
+        //    magics = 3;
+        //    currentHealth = maxHealth; // Reset current health to max health when class is changed
+        //}
+        //else if (dropdown.value == 3)//Tank
+        //{
+        //    maxHealth = 20;
+        //    muscle = 8;
+        //    relfex = 3;
+        //    smarts = 3;
+        //    magics = 3;
+        //    currentHealth = maxHealth; // Reset current health to max health when class is changed
+        //}
+        //else if (dropdown.value == 4)//Priest
+        //{
+        //    maxHealth = 15;
+        //    muscle = 3;
+        //    relfex = 3;
+        //    smarts = 8;
+        //    magics = 10;
+        //    currentHealth = maxHealth; // Reset current health to max health when class is changed
+        //}
+        //else if (dropdown.value == 5)//Average Joe
+        //{
+        //    maxHealth = 10;
+        //    muscle = 5;
+        //    relfex = 5;
+        //    smarts = 5;
+        //    magics = 5;
+        //    currentHealth = maxHealth; // Reset current health to max health when class is changed
+        //}
 
 
         //Update stat visuals for dev purposes
