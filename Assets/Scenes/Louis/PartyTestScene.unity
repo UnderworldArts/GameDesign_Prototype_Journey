@@ -281,12 +281,12 @@ GameObject:
   - component: {fileID: 101746734}
   - component: {fileID: 101746733}
   m_Layer: 5
-  m_Name: CharacterClassText
+  m_Name: Character1ClassText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &101746732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 27.1175}
+  m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 80, y: 30.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &101746733
@@ -990,7 +990,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -42.8825}
+  m_AnchoredPosition: {x: 0, y: -70}
   m_SizeDelta: {x: 110.58, y: 183.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &198561156
@@ -2128,7 +2128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 127.1175}
+  m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: 80, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409211968
@@ -2308,11 +2308,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cce50d4ae9b635f4bbab575142665abf, type: 2}
   - {fileID: 11400000, guid: 815c9acbbef8d2943b436a255f522a85, type: 2}
   chosenCharacter: {fileID: 0}
+  spriteRenderer: {fileID: 451648991}
   maxHealth: 10
   currentHealth: 0
   CharacterHealthText: {fileID: 991103165}
   menuUI: {fileID: 849986447}
   healthbar: {fileID: 409211968}
+  damage: 1
   hurtDuration: 2
   numberOfFlashes: 3
   characterClass: 
@@ -2395,7 +2397,7 @@ Transform:
   m_GameObject: {fileID: 451648989}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.74, y: 1.45, z: 0}
+  m_LocalPosition: {x: 7.14, y: 1.58, z: 0}
   m_LocalScale: {x: 0.25857526, y: 0.2828265, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2572,7 +2574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -42.8825}
+  m_AnchoredPosition: {x: 0, y: -70}
   m_SizeDelta: {x: 110.58, y: 183.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &484914389
@@ -2613,11 +2615,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cce50d4ae9b635f4bbab575142665abf, type: 2}
   - {fileID: 11400000, guid: 815c9acbbef8d2943b436a255f522a85, type: 2}
   chosenCharacter: {fileID: 0}
+  spriteRenderer: {fileID: 484914391}
   maxHealth: 10
   currentHealth: 0
   CharacterHealthText: {fileID: 1245902116}
   menuUI: {fileID: 849986447}
   healthbar: {fileID: 1673005234}
+  damage: 1
   hurtDuration: 2
   numberOfFlashes: 3
   characterClass: 
@@ -2700,7 +2704,7 @@ Transform:
   m_GameObject: {fileID: 484914389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.15, y: 1.48, z: 0}
+  m_LocalPosition: {x: 1.83, y: 1.64, z: 0}
   m_LocalScale: {x: 0.25857526, y: 0.2828265, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2816,8 +2820,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: -30}
-  m_SizeDelta: {x: 110.58001, y: 269.235}
+  m_AnchoredPosition: {x: 80, y: 0}
+  m_SizeDelta: {x: 110, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &599162067
 GameObject:
@@ -3310,8 +3314,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 320, y: -30}
-  m_SizeDelta: {x: 110.58001, y: 269.235}
+  m_AnchoredPosition: {x: 320, y: 0}
+  m_SizeDelta: {x: 110, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &767035545
 GameObject:
@@ -4005,12 +4009,12 @@ GameObject:
   - component: {fileID: 999391580}
   - component: {fileID: 999391579}
   m_Layer: 5
-  m_Name: CharacterClassText
+  m_Name: Character3ClassText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &999391578
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4027,7 +4031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 27.1175}
+  m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 80, y: 30.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &999391579
@@ -4704,7 +4708,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 127.1175}
+  m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: 80, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1131390086
@@ -6891,8 +6895,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -30}
-  m_SizeDelta: {x: 110.58001, y: 269.235}
+  m_AnchoredPosition: {x: 200, y: 0}
+  m_SizeDelta: {x: 110.58001, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1657553615
 GameObject:
@@ -7132,7 +7136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 127.1175}
+  m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: 80, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1808015386
@@ -7443,7 +7447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -42.8825}
+  m_AnchoredPosition: {x: 0, y: -70}
   m_SizeDelta: {x: 110.58, y: 183.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1948398414
@@ -7776,7 +7780,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49637d4abaaa9274b86d3c32d790e291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 484914390}
+  readyButton: {fileID: 0}
+  character1: {fileID: 484914390}
+  character2: {fileID: 2024387356}
+  character3: {fileID: 451648990}
 --- !u!114 &1999445156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7883,12 +7890,12 @@ GameObject:
   - component: {fileID: 2011434700}
   - component: {fileID: 2011434699}
   m_Layer: 5
-  m_Name: CharacterClassText
+  m_Name: Character2ClassText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2011434698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7905,7 +7912,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 27.1175}
+  m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 80, y: 30.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011434699
@@ -8046,11 +8053,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cce50d4ae9b635f4bbab575142665abf, type: 2}
   - {fileID: 11400000, guid: 815c9acbbef8d2943b436a255f522a85, type: 2}
   chosenCharacter: {fileID: 0}
+  spriteRenderer: {fileID: 2024387357}
   maxHealth: 10
   currentHealth: 0
   CharacterHealthText: {fileID: 127296815}
   menuUI: {fileID: 849986447}
   healthbar: {fileID: 1131390086}
+  damage: 1
   hurtDuration: 2
   numberOfFlashes: 3
   characterClass: 
@@ -8133,7 +8142,7 @@ Transform:
   m_GameObject: {fileID: 2024387355}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.44, y: 1.47, z: 0}
+  m_LocalPosition: {x: 4.44, y: 1.64, z: 0}
   m_LocalScale: {x: 0.25857526, y: 0.2828265, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
