@@ -7,6 +7,7 @@ public class TextBox : MonoBehaviour
     [SerializeField] TextMeshProUGUI genText; // the text game object itself
     private Coroutine typingCoroutine; // Coroutine that types the string over the course of a few seconds
     private AudioSource source; // nickname for the text sound effect
+    public bool Pause = false; // used by other scripts to stop other code when text is on screen, as needed
 
     void Start()
     {
@@ -20,18 +21,13 @@ public class TextBox : MonoBehaviour
             Debug.Log("Spacebar");
             TextClear();
             // some if logic for when it is multiple lines sent in sequence - if necessary
+            Pause = false;
         }
     }
 
     public void ShowText(string forTextBox) // function triggered through the other scripts passing through the string in brackets
     {
-        // Stop ongoing coroutine i.e., if the player is quickly clicking through
-        if (typingCoroutine != null) // != null means NOT NULL i.e., currently active
-        {
-            StopCoroutine(typingCoroutine);
-        }
-
-        genText.text = ""; // Clears all text in the text box
+        TextClear();
         typingCoroutine = StartCoroutine(WriteText(forTextBox)); // carries the string into the coroutine
     }
 
