@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Menus : MonoBehaviour
 {
     [SerializeField] string nextScene; // assign script to a menu manager game object in scene, writing the scene name EXCATLY that you want the button to trigger
-    [SerializeField] string StringName; // this is the variable you will use
 
     [SerializeField] GameObject popUp;
     [SerializeField] Animator anim;
