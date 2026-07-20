@@ -6,7 +6,10 @@ using UnityEngine.UIElements;
 
 public class CharacterStats : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
+    public Character[] characters;
+    public Character chosenCharacter;
+
+    [SerializeField]private SpriteRenderer spriteRenderer;
 
     //Set character's max health and current health
     [Header("Health Stats")]
@@ -20,7 +23,8 @@ public class CharacterStats : MonoBehaviour
     // Reference to the Healthbar script to update the UI
     public Healthbar healthbar;
 
-
+    [Header("Damage Test Info")]
+    public int damage;
     //Visualises the character taking damage
     [SerializeField] private float hurtDuration;
     [SerializeField] private int numberOfFlashes;
@@ -81,13 +85,16 @@ public class CharacterStats : MonoBehaviour
 
         CharacterHealthText.text = currentHealth + "/" + maxHealth;
 
-        // For testing purposes, reduce health when the space key is pressed
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (currentHealth <= 0)
         {
-            TakeDamage(1);
+            Die();
         }
 
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(damage);
+        }
     }
 
 
@@ -103,60 +110,16 @@ public class CharacterStats : MonoBehaviour
 
     public void SetStats()
     {
-        if (dropdown.value == 0)//Fighter
-        {
-            maxHealth = 10;
-            muscle = 10;
-            relfex = 5;
-            smarts = 3;
-            magics = 1;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
-        else if (dropdown.value == 1)//Mage
-        {
-            maxHealth = 5;
-            muscle = 1;
-            relfex = 5;
-            smarts = 10;
-            magics = 10;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
-        else if (dropdown.value == 2)//Rogue
-        {
-            maxHealth = 8;
-            muscle = 5;
-            relfex = 10;
-            smarts = 5;
-            magics = 3;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
-        else if (dropdown.value == 3)//Tank
-        {
-            maxHealth = 20;
-            muscle = 8;
-            relfex = 3;
-            smarts = 3;
-            magics = 3;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
-        else if (dropdown.value == 4)//Priest
-        {
-            maxHealth = 15;
-            muscle = 3;
-            relfex = 3;
-            smarts = 8;
-            magics = 10;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
-        else if (dropdown.value == 5)//Average Joe
-        {
-            maxHealth = 10;
-            muscle = 5;
-            relfex = 5;
-            smarts = 5;
-            magics = 5;
-            currentHealth = maxHealth; // Reset current health to max health when class is changed
-        }
+        //Assign class from dropdown
+        chosenCharacter = characters[dropdown.value];
+
+        //Assign stats based on chosen class
+        maxHealth = chosenCharacter.maxHealth;
+        currentHealth = maxHealth;
+        muscle = chosenCharacter.muscle;
+        relfex = chosenCharacter.reflex;
+        smarts = chosenCharacter.smarts;
+        magics = chosenCharacter.magics;
 
 
         //Update stat visuals for dev purposes
@@ -166,9 +129,14 @@ public class CharacterStats : MonoBehaviour
         magicsText.text = "Magics: " + magics;
     }
 
-        // Method to reduce health when the character takes damage
-        void TakeDamage(int damage)
-        {
+    void Die()
+    {
+        Debug.Log(chosenCharacter + "has died.");
+    }
+
+    // Method to reduce health when the character takes damage
+    void TakeDamage(int damage)
+    {
         currentHealth -= damage;
         Debug.Log("Character took damage. Current health: " + currentHealth);
 
@@ -177,19 +145,8 @@ public class CharacterStats : MonoBehaviour
 
         StartCoroutine(DamageFlash());
 
-        // Check if the character's health has dropped to zero or below
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
     }
 
-
-    void Die()
-    {
-        Debug.Log("Character died.");
-        // Add death logic here (e.g., respawn, game over, etc.)
-    }
 
 
     // Coroutine to handle the damage flash effect
