@@ -12,7 +12,8 @@ public class Inventory2 : MonoBehaviour
     string inventoryContentString;
     string inventoryContentString2;
 
-    List<string> inventoryContent = new List<string>();
+    public List<string> inventoryContent = new List<string>();
+    public List<InventoryItem> inventoryItems = new List<InventoryItem>();
     string inventoryStrings = "";
     int inventorySpace = 20;
 
@@ -23,6 +24,8 @@ public class Inventory2 : MonoBehaviour
 
     [SerializeField] TMP_InputField inputfield;
     string userItemText;
+
+    [SerializeField] Inventory inventory;
 
 
     void Start()
@@ -42,57 +45,67 @@ public class Inventory2 : MonoBehaviour
         GoldTotalSHOP.text = GoldTotal.text;
     }
 
-    public bool ItemInInventory(string itemDescription, string itemName, int itemPrice, int noItem)
+    public void ItemInInventory(string itemDescription, string itemName, int itemPrice, int noItem)
     {
         // Debug.Log("New item");
 
         for (int i = 0; i < inventorySpace; i++)
         {
             inventoryContent.Insert((i), itemName); // inserts item onto the list
-            //Debug.Log(inventoryStrings);
+                                                    //Debug.Log(inventoryStrings);
 
-            i += 1; // marks the spot so the list is order of when the player adds items to the inventory
+            //if (inventoryContent.Contains(inventoryContent[])
+            //{
+            //    inventoryContent[i].itemCount++;
+            //}
+            //else
+            //{
+            //    InventoryItem item = new InventoryItem();
+            //    item.itemName = itemName;
+            //    item.itemCount = 1;
+            //    inventoryContent.Add(item);
+            //    //Display text
+            //}
+
+
+            //i += 1; // marks the spot so the list is order of when the player adds items to the inventory
 
             if (inventoryStrings.Contains(itemName))
             {
-                //Debug.Log($"The word '{itemName}' exists in the sentence.");
-                string inventoryContentString3 = "\n" + noItem + " " + itemName;
-                string itemNameBackup2 = itemName;
+               
+                for (int j = 0; j < inventoryItems.Count; j++)
+                {
+                    if (inventoryItems[j] != null)
+                    {
+                        if (inventoryItems[j].itemName == itemName)
+                        {
+                            inventoryItems[j].itemCount++;
+                        }
+                    }
+                }
 
-                //Debug.Log(itemNameBackup);
+                //inventoryItems[i].itemName = 
 
-                //inventoryContentString2 = inventoryContentString2.Replace(itemNameBackup, itemNameBackup2);
-                inventoryContentString = inventoryContentString.Replace(inventoryContentString2, inventoryContentString3);
-
-                //Debug.Log(inventoryContentString2);
-                //inventoryContentString += inventoryContentString2; - Commented out due to warning
-                inventoryContentString2 = "\n" + noItem + " " + itemName;
 
                 inventoryContentText.text = inventoryContentString;
+
             }
             else
             {
-                //Debug.Log($"The word '{itemName}' does not exist in the sentence.");
-                inventoryContentString += "\n" + noItem + " " + itemName;
-                inventoryContentString2 = "\n" + noItem + " " + itemName;
-
-                //itemNameBackup = itemName; - Commented out due to warning 
-                //Debug.Log("itemNameBackup");
+                InventoryItem item = new InventoryItem();
+                item.itemName = itemName;
+                item.itemCount++;
+                inventoryItems.Add(item);
 
                 inventoryContentText.text = inventoryContentString;
             }
 
             inventoryStrings = "List contents: " + string.Join(", ", inventoryContent);
-
-            return true;
+            Debug.Log(inventoryItems[i].itemName);
+            Debug.Log(inventoryItems[i].itemCount);
+            return;
         }
-        return true;
-        //Destroy(gameObject);
-    }
 
-        public void UseItem()
-        {
-            Debug.Log("Use item");
         }
 
         public void TypedTextItem()
@@ -109,6 +122,32 @@ public class Inventory2 : MonoBehaviour
                 // addtional use item logic
                 inventoryStrings = inventoryStrings.Replace(userItemText, "");
                 // remove one entry from the list
+
+                //Debug.Log(inventory.);
             }
         }
+
+        public void TypedTextRecievingCharacter()
+        {
+            //Debug.Log("Wrote text");
+            userItemText = inputfield.text;
+            Debug.Log(userItemText);
+            Debug.Log(inventoryStrings);
+
+            if (inventoryStrings.Contains(userItemText))
+            {
+                Debug.Log("matched to item in inventory");
+
+                // addtional use item logic
+                inventoryStrings = inventoryStrings.Replace(userItemText, "");
+                // remove one entry from the list
+            }
+        }
+}
+
+[System.Serializable]
+public class InventoryItem
+{
+    public string itemName;
+    public int itemCount;
 }

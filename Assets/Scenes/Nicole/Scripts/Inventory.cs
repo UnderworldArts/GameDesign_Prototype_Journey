@@ -16,6 +16,12 @@ public class Inventory : MonoBehaviour, IPointerClickHandler
     [SerializeField] int itemPrice;
     int noItem = 0;
 
+    [SerializeField] int HPChange;
+    [SerializeField] int muscleChange;
+    [SerializeField] int reflexChange;
+    [SerializeField] int smartsChange;
+    [SerializeField] int magicsChange;
+
     AudioSource source; // nickname for the text sound effect
 
 
