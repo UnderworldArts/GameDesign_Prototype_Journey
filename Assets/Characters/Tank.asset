@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d96579090121e44994aaa71ebd20010, type: 3}
   m_Name: Tank
   m_EditorClassIdentifier: 
+  classSprite: {fileID: 4326872430171513394, guid: 5f54e23d4637846478c24efc42e180bd, type: 3}
   maxHealth: 20
   muscle: 8
-  relfex: 3
+  reflex: 0
   smarts: 3
   magics: 3

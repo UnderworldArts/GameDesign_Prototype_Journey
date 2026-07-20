@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d96579090121e44994aaa71ebd20010, type: 3}
   m_Name: Warrior
   m_EditorClassIdentifier: 
+  classSprite: {fileID: 3936237207227628347, guid: ed14565f58995914da1f8ceb36b8d6c7, type: 3}
   maxHealth: 10
   muscle: 10
-  relfex: 5
+  reflex: 0
   smarts: 3
   magics: 1

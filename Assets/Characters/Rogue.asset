@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d96579090121e44994aaa71ebd20010, type: 3}
   m_Name: Rogue
   m_EditorClassIdentifier: 
+  classSprite: {fileID: 4979363154352999712, guid: 83bdaab50733e15428308e36a61cb7ff, type: 3}
   maxHealth: 8
   muscle: 5
-  relfex: 10
+  reflex: 0
   smarts: 5
   magics: 3

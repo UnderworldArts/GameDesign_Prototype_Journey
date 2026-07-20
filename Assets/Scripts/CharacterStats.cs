@@ -9,6 +9,7 @@ public class CharacterStats : MonoBehaviour
     public Character[] characters;
     public Character chosenCharacter;
 
+
     [SerializeField]private SpriteRenderer spriteRenderer;
 
     //Set character's max health and current health
@@ -112,6 +113,9 @@ public class CharacterStats : MonoBehaviour
     {
         //Assign class from dropdown
         chosenCharacter = characters[dropdown.value];
+
+        //Assign sprite from dropdown
+        spriteRenderer.sprite = chosenCharacter.classSprite;
 
         //Assign stats based on chosen class
         maxHealth = chosenCharacter.maxHealth;
