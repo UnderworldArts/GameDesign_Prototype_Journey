@@ -1,9 +1,10 @@
-using TMPro;
-using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Inventory2 : MonoBehaviour
 {
@@ -11,8 +12,9 @@ public class Inventory2 : MonoBehaviour
     [SerializeField] TextMeshProUGUI inventoryContentTextSHOP; // the text game object itself
     string inventoryContentString;
     string inventoryContentString2;
+    string inventoryContentString3;
 
-    public List<string> inventoryContent = new List<string>();
+    //public List<string> inventoryContent = new List<string>();
     public List<InventoryItem> inventoryItems = new List<InventoryItem>();
     string inventoryStrings = "";
     int inventorySpace = 20;
@@ -47,32 +49,10 @@ public class Inventory2 : MonoBehaviour
 
     public void ItemInInventory(string itemDescription, string itemName, int itemPrice, int noItem)
     {
-        // Debug.Log("New item");
-
         for (int i = 0; i < inventorySpace; i++)
         {
-            inventoryContent.Insert((i), itemName); // inserts item onto the list
-                                                    //Debug.Log(inventoryStrings);
-
-            //if (inventoryContent.Contains(inventoryContent[])
-            //{
-            //    inventoryContent[i].itemCount++;
-            //}
-            //else
-            //{
-            //    InventoryItem item = new InventoryItem();
-            //    item.itemName = itemName;
-            //    item.itemCount = 1;
-            //    inventoryContent.Add(item);
-            //    //Display text
-            //}
-
-
-            //i += 1; // marks the spot so the list is order of when the player adds items to the inventory
-
             if (inventoryStrings.Contains(itemName))
             {
-               
                 for (int j = 0; j < inventoryItems.Count; j++)
                 {
                     if (inventoryItems[j] != null)
@@ -83,26 +63,27 @@ public class Inventory2 : MonoBehaviour
                         }
                     }
                 }
-
-                //inventoryItems[i].itemName = 
-
-
-                inventoryContentText.text = inventoryContentString;
-
             }
             else
             {
+                Debug.Log("$ First {itemName} in list");
                 InventoryItem item = new InventoryItem();
                 item.itemName = itemName;
                 item.itemCount++;
                 inventoryItems.Add(item);
-
-                inventoryContentText.text = inventoryContentString;
             }
 
-            inventoryStrings = "List contents: " + string.Join(", ", inventoryContent);
-            Debug.Log(inventoryItems[i].itemName);
-            Debug.Log(inventoryItems[i].itemCount);
+         //entoryStrings = "List contents: " + string.Join(", ", inventoryContent);
+
+            inventoryContentText.text = "";
+            inventoryContentString = "";
+
+            
+
+            inventoryContentText.text = inventoryContentString;
+            inventoryStrings += inventoryItems[i].itemCount + " " + inventoryItems[i].itemName + " ";
+
+
             return;
         }
 
