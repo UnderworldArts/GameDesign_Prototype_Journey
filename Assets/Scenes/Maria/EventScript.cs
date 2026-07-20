@@ -19,22 +19,29 @@ public class EventScript : MonoBehaviour
     [SerializeField] string EventStartText; // this is the variable you will use
     [SerializeField] string EventSuccessText;
     [SerializeField] string EventFailText;
-
+    private bool EventDone;
     void Start()
     {
+        EventDone = false;
         textbox.TextClear();
         ForTextBox = EventStartText;
         textbox.ShowText(ForTextBox);
-        EventStart();
-        Debug.Log("Void Start");
 
+        Debug.Log("Void Start");
     }
-    public void EventStart()
+    void Update()
     {
-        Debug.Log("Event Start is working");
-        if (Input.GetKey(KeyCode.G))
+        //Debug.Log("Event Start is working");
+       if (Input.GetKeyDown(KeyCode.G))
         {
             Event();
+        }
+        if (Input.GetKey(KeyCode.F))
+        {
+            textbox.TextClear();
+            EventManager.Continue();
+            Destroy(gameObject);
+            Debug.Log("EventDone");
         }
     }
     public void Event() //If the event calls for a strength check for eg, only give the enemy a strength number >0. all others stay as 0 so the characters automatically win in that stat.
@@ -42,8 +49,8 @@ public class EventScript : MonoBehaviour
         Debug.Log("Event is working");
         if (CharacterStats.muscle < EnemyMuscle && CharacterStats.relfex < EnemyReflex && CharacterStats.smarts < EnemySmarts && CharacterStats.magics < EnemyMagics)
         {
-            EventSuccess();
        }
+            EventSuccess();
         if (CharacterStats.muscle > EnemyMuscle && CharacterStats.relfex > EnemyReflex && CharacterStats.smarts > EnemySmarts && CharacterStats.magics > EnemyMagics)
         {
             EventFail();
@@ -55,13 +62,8 @@ public class EventScript : MonoBehaviour
         textbox.TextClear();
         ForTextBox = EventSuccessText;
         textbox.ShowText(ForTextBox);
-        if (Input.GetKey(KeyCode.G))
-        {
-            EventManager.Continue();
-            Destroy(gameObject);//so the same event doesnt get chosen again
-            
-        }
-
+        EventDone = true;
+       
     }
 
     void EventFail()
@@ -70,11 +72,8 @@ public class EventScript : MonoBehaviour
         ForTextBox = EventFailText;
         textbox.ShowText(ForTextBox);
         CharacterStats.currentHealth -= DamageTaken; //if damage is dealt. leave DamageTaken as 0 if situation doesnt call for it
-        if (Input.GetKey(KeyCode.G))
-        {
-            EventManager.Continue();
-            Destroy(gameObject);
-        }
+        EventDone = true;
+        
     }
 
 

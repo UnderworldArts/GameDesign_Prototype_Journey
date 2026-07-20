@@ -28,10 +28,7 @@ public class EventManager : MonoBehaviour
         }
         if (EventCount != 5)//selects a random gameobject and activates it
        {
-         // Random random = new Random();
-   // int index = Random.Next(EventScript.count);
-
-
+         
             Debug.Log("Event started");
 
             GameObject randomObject = GetRandomObject(Events);
