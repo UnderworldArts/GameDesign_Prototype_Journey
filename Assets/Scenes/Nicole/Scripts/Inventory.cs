@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour, IPointerClickHandler
     string ForTextBox; // leave this blank
 
     [SerializeField] Inventory2 inventory;
+    public string InventoryEntryString;
 
     [SerializeField] string itemDescription; // this is the variable you will use
     [SerializeField] string itemName;
@@ -64,7 +65,7 @@ public class Inventory : MonoBehaviour, IPointerClickHandler
                 ForTextBox = "You bought " + itemName + " for " + itemPrice + " gold!";
                 inventory.Gold -= itemPrice;
 
-                Debug.Log(inventory.Gold);
+                //Debug.Log(inventory.Gold);
                 inventory.UpdateGoldCount();
 
                 textbox.ShowText(ForTextBox);
