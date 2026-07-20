@@ -36,7 +36,7 @@ public class EventManager : MonoBehaviour
 
             GameObject randomObject = GetRandomObject(Events);
             Debug.Log("Event Chosen: " + randomObject.name);
-            randomObject.SetActive(true);
+           randomObject.SetActive(true);
              GameObject GetRandomObject(List<GameObject> list)
             {
             int index = Random.Range(0, list.Count);

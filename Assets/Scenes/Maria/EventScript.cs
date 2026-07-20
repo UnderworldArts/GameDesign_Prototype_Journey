@@ -22,21 +22,28 @@ public class EventScript : MonoBehaviour
 
     void Start()
     {
+        textbox.TextClear();
         ForTextBox = EventStartText;
         textbox.ShowText(ForTextBox);
-        if (Input.GetKey(KeyCode.Space))
+        EventStart();
+        Debug.Log("Void Start");
+
+    }
+    public void EventStart()
+    {
+        Debug.Log("Event Start is working");
+        if (Input.GetKey(KeyCode.G))
         {
             Event();
         }
-
     }
     public void Event() //If the event calls for a strength check for eg, only give the enemy a strength number >0. all others stay as 0 so the characters automatically win in that stat.
     {
-        Debug.Log("Event Started");
+        Debug.Log("Event is working");
         if (CharacterStats.muscle < EnemyMuscle && CharacterStats.relfex < EnemyReflex && CharacterStats.smarts < EnemySmarts && CharacterStats.magics < EnemyMagics)
         {
             EventSuccess();
-        }
+       }
         if (CharacterStats.muscle > EnemyMuscle && CharacterStats.relfex > EnemyReflex && CharacterStats.smarts > EnemySmarts && CharacterStats.magics > EnemyMagics)
         {
             EventFail();
@@ -45,10 +52,10 @@ public class EventScript : MonoBehaviour
 
     void EventSuccess()
     {
-        //textbox.TextClear();
+        textbox.TextClear();
         ForTextBox = EventSuccessText;
         textbox.ShowText(ForTextBox);
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.G))
         {
             EventManager.Continue();
             Destroy(gameObject);//so the same event doesnt get chosen again
@@ -59,11 +66,11 @@ public class EventScript : MonoBehaviour
 
     void EventFail()
     {
-        //textbox.TextClear();
+        textbox.TextClear();
         ForTextBox = EventFailText;
         textbox.ShowText(ForTextBox);
         CharacterStats.currentHealth -= DamageTaken; //if damage is dealt. leave DamageTaken as 0 if situation doesnt call for it
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.G))
         {
             EventManager.Continue();
             Destroy(gameObject);

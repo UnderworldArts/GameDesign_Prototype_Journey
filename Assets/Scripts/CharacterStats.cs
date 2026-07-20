@@ -106,7 +106,7 @@ public class CharacterStats : MonoBehaviour
         string selectedOption = dropdown.options[pickedEntryIndex].text;
 
         classText.text = "Class: " + selectedOption;
-        Debug.Log("Selected Class: " + selectedOption);
+        //Debug.Log("Selected Class: " + selectedOption);
     }
 
     public void SetStats()

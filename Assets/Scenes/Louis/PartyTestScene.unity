@@ -3529,6 +3529,61 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &828137973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 828137975}
+  - component: {fileID: 828137974}
+  m_Layer: 0
+  m_Name: Event 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &828137974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828137973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca472735b11d4a468a57b25bd127369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventScript
+  EnemyMuscle: 1
+  EnemyReflex: 1
+  EnemySmarts: 1
+  EnemyMagics: 1
+  DamageTaken: 1
+  CharacterStats: {fileID: 484914390}
+  EventManager: {fileID: 1266688953}
+  textbox: {fileID: 542844132}
+  EventStartText: event 2
+  EventSuccessText: ebent 2 win
+  EventFailText: event 2 lose
+--- !u!4 &828137975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828137973}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.62946, y: -0.35968, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &849986447
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,6 +5976,7 @@ MonoBehaviour:
   EndScene: End Scene
   Events:
   - {fileID: 318688651}
+  - {fileID: 828137973}
 --- !u!4 &1266688954
 Transform:
   m_ObjectHideFlags: 0
@@ -8066,8 +8122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49637d4abaaa9274b86d3c32d790e291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  readyButton: {fileID: 0}
-  eventScript: {fileID: 0}
+  readyButton: {fileID: 1999445156}
+  eventScript: {fileID: 318688652}
+  eventManager: {fileID: 1266688953}
   character1: {fileID: 484914390}
   character2: {fileID: 2024387356}
   character3: {fileID: 451648990}
@@ -9151,3 +9208,4 @@ SceneRoots:
   - {fileID: 1266688954}
   - {fileID: 318688653}
   - {fileID: 542844133}
+  - {fileID: 828137975}
