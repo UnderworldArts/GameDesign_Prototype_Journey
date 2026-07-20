@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d96579090121e44994aaa71ebd20010, type: 3}
   m_Name: Priest
   m_EditorClassIdentifier: 
+  classSprite: {fileID: -4749681873034518491, guid: c7147d584a9b0874ba84b7db60e46f4a, type: 3}
   maxHealth: 15
   muscle: 3
-  relfex: 3
+  reflex: 0
   smarts: 8
   magics: 10

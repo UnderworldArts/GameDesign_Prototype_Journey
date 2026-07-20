@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d96579090121e44994aaa71ebd20010, type: 3}
   m_Name: Mage
   m_EditorClassIdentifier: 
+  classSprite: {fileID: 2045810544427044813, guid: c6d2ecc72521c6b45804c4ab7eba505e, type: 3}
   maxHealth: 5
   muscle: 1
-  relfex: 5
+  reflex: 0
   smarts: 10
   magics: 10

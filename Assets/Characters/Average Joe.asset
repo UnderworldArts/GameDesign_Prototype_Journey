@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d96579090121e44994aaa71ebd20010, type: 3}
   m_Name: Average Joe
   m_EditorClassIdentifier: 
+  classSprite: {fileID: -1690657171408329399, guid: 6f27ccee8309f74478141d87e4274337, type: 3}
   maxHealth: 10
   muscle: 5
-  relfex: 5
+  reflex: 0
   smarts: 5
   magics: 5
