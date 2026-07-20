@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +9,8 @@ public class EventManager : MonoBehaviour
     [SerializeField] string EndScene;
     int EventCount;
     public List<GameObject> Events; 
+
+
     void Start()
     {
         EventCount = 0;
@@ -23,15 +27,22 @@ public class EventManager : MonoBehaviour
             EndGame();
         }
         if (EventCount != 5)//selects a random gameobject and activates it
-        {
-            GameObject randomObject = GetRandomObject(Events);
-            Debug.Log("Event Chosen: " + randomObject.name);
-            randomObject.SetActive(true);
-            GameObject GetRandomObject(List<GameObject> list)
-            {
-                int index = Random.Range(0, list.Count);
-                return list[index];
-            }
+       {
+         
+
+            int r = rnd.Next(Events.Count);
+
+
+
+
+            //GameObject randomObject = GetRandomObject(Events);
+            //Debug.Log("Event Chosen: " + randomObject.name);
+            // randomObject.SetActive(true);
+            // GameObject GetRandomObject(List<GameObject> list)
+            //{
+            //int index = Random.Range(0, list.Count);
+            // return list[index];
+            // }
         }
     }
     public void EndGame()
