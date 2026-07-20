@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class EventManager : MonoBehaviour
 {
     [SerializeField] string EndScene;
-    int EventCount;
+    public int EventCount;
     public List<GameObject> Events;
    
 
@@ -30,17 +30,16 @@ public class EventManager : MonoBehaviour
        {
          
             Debug.Log("Event started");
-
             GameObject randomObject = GetRandomObject(Events);
             Debug.Log("Event Chosen: " + randomObject.name);
-           randomObject.SetActive(true);
              GameObject GetRandomObject(List<GameObject> list)
             {
             int index = Random.Range(0, list.Count);
             return list[index];
              }
-        }
+            randomObject.SetActive(true);
     }
+        }
     public void EndGame()
     {
         SceneManager.LoadScene(EndScene);

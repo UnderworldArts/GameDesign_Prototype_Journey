@@ -32,16 +32,19 @@ public class EventScript : MonoBehaviour
     void Update()
     {
         //Debug.Log("Event Start is working");
-       if (Input.GetKeyDown(KeyCode.G))
+       if (Input.GetKey(KeyCode.G))
         {
             Event();
         }
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && EventDone == true)
         {
-            textbox.TextClear();
+            object value = EventManager.EventCount += 1;
+            EventManager.Events.Remove(this.gameObject);
+           
             EventManager.Continue();
-            Destroy(gameObject);
-            Debug.Log("EventDone");
+          
+            Debug.Log("EventDone - " + gameObject.name);
+            Destroy(this.gameObject);
         }
     }
     public void Event() //If the event calls for a strength check for eg, only give the enemy a strength number >0. all others stay as 0 so the characters automatically win in that stat.
