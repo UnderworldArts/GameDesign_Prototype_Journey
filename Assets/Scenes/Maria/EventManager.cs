@@ -8,8 +8,8 @@ public class EventManager : MonoBehaviour
 {
     [SerializeField] string EndScene;
     int EventCount;
-    public List<GameObject> Events; 
-
+    public List<GameObject> Events;
+   
 
     void Start()
     {
@@ -28,21 +28,20 @@ public class EventManager : MonoBehaviour
         }
         if (EventCount != 5)//selects a random gameobject and activates it
        {
-         
-
-            int r = rnd.Next(Events.Count);
-
+         // Random random = new Random();
+   // int index = Random.Next(EventScript.count);
 
 
+            Debug.Log("Event started");
 
-            //GameObject randomObject = GetRandomObject(Events);
-            //Debug.Log("Event Chosen: " + randomObject.name);
-            // randomObject.SetActive(true);
-            // GameObject GetRandomObject(List<GameObject> list)
-            //{
-            //int index = Random.Range(0, list.Count);
-            // return list[index];
-            // }
+            GameObject randomObject = GetRandomObject(Events);
+            Debug.Log("Event Chosen: " + randomObject.name);
+            randomObject.SetActive(true);
+             GameObject GetRandomObject(List<GameObject> list)
+            {
+            int index = Random.Range(0, list.Count);
+            return list[index];
+             }
         }
     }
     public void EndGame()
