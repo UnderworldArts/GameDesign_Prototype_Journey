@@ -2680,7 +2680,7 @@ MonoBehaviour:
   hurtDuration: 2
   numberOfFlashes: 3
   characterClass: 
-  muscle: 0
+  muscle: 10
   relfex: 0
   smarts: 0
   magics: 0
@@ -2953,11 +2953,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca472735b11d4a468a57b25bd127369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventScript
-  EnemyMuscle: 1
-  EnemyReflex: 1
-  EnemySmarts: 1
-  EnemyMagics: 1
-  DamageTaken: 1
+  EnemyMuscle: 100
+  EnemyReflex: 100
+  EnemySmarts: 100
+  EnemyMagics: 100
+  DamageTaken: 100
   CharacterStats: {fileID: 484914390}
   EventManager: {fileID: 1266688953}
   textbox: {fileID: 542844132}
@@ -9371,13 +9371,13 @@ SceneRoots:
   - {fileID: 2111667482}
   - {fileID: 849986448}
   - {fileID: 1180490130}
+  - {fileID: 1535281096}
   - {fileID: 484914392}
   - {fileID: 2024387358}
   - {fileID: 451648992}
   - {fileID: 1266688954}
-  - {fileID: 318688653}
   - {fileID: 542844133}
+  - {fileID: 318688653}
   - {fileID: 828137975}
   - {fileID: 599023549}
   - {fileID: 606988629}
-  - {fileID: 1535281096}

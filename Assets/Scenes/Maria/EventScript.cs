@@ -50,15 +50,16 @@ public class EventScript : MonoBehaviour
     public void Event() //If the event calls for a strength check for eg, only give the enemy a strength number >0. all others stay as 0 so the characters automatically win in that stat.
     {
         Debug.Log("Event is working");
-        if (CharacterStats.muscle < EnemyMuscle && CharacterStats.relfex < EnemyReflex && CharacterStats.smarts < EnemySmarts && CharacterStats.magics < EnemyMagics)
+        if (CharacterStats.muscle < EnemyMuscle || CharacterStats.relfex < EnemyReflex || CharacterStats.smarts < EnemySmarts || CharacterStats.magics < EnemyMagics)
         {
+         EventFail();
        }
-            EventSuccess();
-        if (CharacterStats.muscle > EnemyMuscle && CharacterStats.relfex > EnemyReflex && CharacterStats.smarts > EnemySmarts && CharacterStats.magics > EnemyMagics)
+           
+        if (CharacterStats.muscle >= EnemyMuscle || CharacterStats.relfex >= EnemyReflex || CharacterStats.smarts >= EnemySmarts || CharacterStats.magics >= EnemyMagics)
         {
-            EventFail();
+          EventSuccess();
         }
-    }
+    } 
 
     void EventSuccess()
     {
