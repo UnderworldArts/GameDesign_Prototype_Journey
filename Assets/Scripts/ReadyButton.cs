@@ -5,10 +5,12 @@ public class ReadyButton : MonoBehaviour
 {
     [SerializeField] private Button readyButton;
     [SerializeField] EventScript eventScript;
+    [SerializeField] Menus nextsection;
+    [SerializeField] Actions actions;
     [SerializeField] EventManager eventManager;
-    [SerializeField] private CharacterStats character1; // Reference to the Character 1's script
-    [SerializeField] private CharacterStats character2; // Reference to the Character 2's script
-    [SerializeField] private CharacterStats character3; // Reference to the Character 3's script
+    public CharacterStats character1; // Reference to the Character 1's script
+    public CharacterStats character2; // Reference to the Character 2's script
+    public CharacterStats character3; // Reference to the Character 3's script
 
 
     public void ReadyClicked()
@@ -19,7 +21,16 @@ public class ReadyButton : MonoBehaviour
         character1.GetReady();
         character2.GetReady();
         character3.GetReady();
-        eventManager.Continue();
+        actions.AddOptions();
+
+        NextSection();
+
+        //eventManager.Continue();
+    }
+
+    public void NextSection()
+    {
+        nextsection.PopupIN();
     }
 
 }

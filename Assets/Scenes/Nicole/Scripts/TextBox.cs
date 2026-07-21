@@ -5,6 +5,7 @@ using UnityEngine;
 public class TextBox : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI genText; // the text game object itself
+    [SerializeField] TextMeshProUGUI ExtraText;
     private Coroutine typingCoroutine; // Coroutine that types the string over the course of a few seconds
     private AudioSource source; // nickname for the text sound effect
     public bool Pause = false; // used by other scripts to stop other code when text is on screen, as needed
@@ -22,7 +23,18 @@ public class TextBox : MonoBehaviour
             TextClear();
             // some if logic for when it is multiple lines sent in sequence - if necessary
             Pause = false;
+            RemovePauseHint();
         }
+    }
+
+    public void PauseHint()
+    {
+        ExtraText.text = "Press spacebar to continue";
+    }
+
+    public void RemovePauseHint()
+    {
+        ExtraText.text = " ";
     }
 
     public void ShowText(string forTextBox) // function triggered through the other scripts passing through the string in brackets

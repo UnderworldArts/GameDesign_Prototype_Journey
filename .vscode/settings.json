@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "GameDesign_Prototype_Journey.sln"
+    "dotnet.defaultSolution": "GameDesign_Prototype_Journey.slnx"
 }

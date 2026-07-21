@@ -53,6 +53,10 @@ public class CharacterStats : MonoBehaviour
     bool isReady = false;
     public GameObject charSelectUI; // Reference to the character selection UI
 
+    // for actions script
+    public bool CanAbility = true;
+    public int IndexList;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -80,9 +84,7 @@ public class CharacterStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         GetDropdownValue();
-        SetStats();
 
         CharacterHealthText.text = currentHealth + "/" + maxHealth;
 
@@ -95,6 +97,11 @@ public class CharacterStats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(damage);
+        }
+
+        if (!isReady)
+        {
+            SetStats();
         }
     }
 
@@ -124,6 +131,7 @@ public class CharacterStats : MonoBehaviour
         relfex = chosenCharacter.reflex;
         smarts = chosenCharacter.smarts;
         magics = chosenCharacter.magics;
+        characterClass = chosenCharacter.name;
 
 
         //Update stat visuals for dev purposes

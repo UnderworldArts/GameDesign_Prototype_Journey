@@ -70,6 +70,7 @@ public class Inventory : MonoBehaviour, IPointerClickHandler
 
                 textbox.ShowText(ForTextBox);
                 textbox.Pause = true;
+                textbox.PauseHint();
                 
                 NewItem();
             }

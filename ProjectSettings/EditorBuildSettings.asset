@@ -6,17 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/Nicole/Test Scenes/End Screen.unity
-    guid: 4074081b32fb5d64ba0f35c105c728fd
-  - enabled: 1
     path: Assets/Scenes/Nicole/Test Scenes/Title Screen.unity
     guid: 7ec433f42ef7d744e954c69b93211649
   - enabled: 1
     path: Assets/Scenes/Nicole/Test Scenes/Game Mockup 1.unity
     guid: 8c2b197770aa79e4486d22128b861b0b
+  - enabled: 1
+    path: Assets/Scenes/Nicole/Test Scenes/End Screen.unity
+    guid: 4074081b32fb5d64ba0f35c105c728fd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
