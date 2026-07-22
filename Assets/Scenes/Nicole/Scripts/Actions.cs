@@ -15,13 +15,10 @@ public class Actions : MonoBehaviour
     //bool CanAbility = true;
 
     [SerializeField] TMP_Dropdown CharacterSelect;
-
-    //[SerializeField] List<MonoBehaviour> scripts =;
     public List<CharacterStats> partyStats = new List<CharacterStats>();
-    //public CharacterStats character1; // Reference to the Character 1's script
-    //public CharacterStats character2; // Reference to the Character 2's script
-    //public CharacterStats character3; // Reference to the Character 3's script
-    CharacterStats Activecharacter;
+    public CharacterStats Activecharacter;
+
+    [SerializeField] Inventory2 inventory;
 
     public void AddOptions()
     {
@@ -35,6 +32,15 @@ public class Actions : MonoBehaviour
         }
 
         CharacterSelect.value = 0;
+        inventory.UseOnOptions(partyStats);
+        inventory.SetPartyNames(partyStats);
+    }
+
+    public void RemoveDeadCharacter(Character chosenCharacter, int IndexList)
+    {
+        CharacterSelect.options.RemoveAt(IndexList);
+        //partyStats.Remove(chosenCharacter.character); // remove dead character from list
+        Destroy(chosenCharacter);
     }
 
     public void SelectCharacter()

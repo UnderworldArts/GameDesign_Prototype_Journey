@@ -56,6 +56,7 @@ public class CharacterStats : MonoBehaviour
     // for actions script
     public bool CanAbility = true;
     public int IndexList;
+    [SerializeField] Actions actions;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -144,6 +145,7 @@ public class CharacterStats : MonoBehaviour
     void Die()
     {
         Debug.Log(chosenCharacter + "has died.");
+        actions.RemoveDeadCharacter(chosenCharacter, IndexList);
     }
 
     // Method to reduce health when the character takes damage

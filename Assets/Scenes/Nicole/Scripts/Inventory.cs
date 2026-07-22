@@ -56,29 +56,38 @@ public class Inventory : MonoBehaviour, IPointerClickHandler
     {
         // maybe pop up button for confirmation?
         // Debug.Log("Click");
-
         if (textbox.Pause == false)
         {
-            if (inventory.Gold >= itemPrice)
+            if (inventory.inventorySpace > 0)
             {
-                // check if can afford item
-                ForTextBox = "You bought " + itemName + " for " + itemPrice + " gold!";
-                inventory.Gold -= itemPrice;
+                if (inventory.Gold >= itemPrice)
+                {
+                    // check if can afford item
+                    ForTextBox = "You bought " + itemName + " for " + itemPrice + " gold!";
+                    inventory.Gold -= itemPrice;
 
-                //Debug.Log(inventory.Gold);
-                inventory.UpdateGoldCount();
+                    //Debug.Log(inventory.Gold);
+                    inventory.UpdateGoldCount();
 
-                textbox.ShowText(ForTextBox);
-                textbox.Pause = true;
-                textbox.PauseHint();
-                
-                NewItem();
+                    textbox.ShowText(ForTextBox);
+                    textbox.Pause = true;
+                    textbox.PauseHint();
+                    
+                    NewItem();
+                }
+                else
+                {
+                    Debug.Log("HA POOR");
+                    ForTextBox = "Sorry, you cannot afford that item.";
+                    textbox.ShowText(ForTextBox);
+                }
             }
             else
             {
-                Debug.Log("HA POOR");
-                ForTextBox = "Sorry, you cannot afford that item.";
+                ForTextBox = "Sorry, it seems you cannot carry any more items.";
                 textbox.ShowText(ForTextBox);
+                textbox.Pause = true;
+                textbox.PauseHint();
             }
         }
     }
