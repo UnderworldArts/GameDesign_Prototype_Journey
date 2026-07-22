@@ -95,10 +95,10 @@ public class CharacterStats : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(damage);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    TakeDamage(damage);
+        //}
 
         if (!isReady)
         {

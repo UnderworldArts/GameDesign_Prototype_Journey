@@ -19,7 +19,7 @@ public class TextBox : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Spacebar");
+            //Debug.Log("Spacebar");
             TextClear();
             // some if logic for when it is multiple lines sent in sequence - if necessary
             Pause = false;

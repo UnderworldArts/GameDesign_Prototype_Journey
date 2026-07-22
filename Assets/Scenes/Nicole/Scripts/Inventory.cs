@@ -13,15 +13,16 @@ public class Inventory : MonoBehaviour, IPointerClickHandler
     public string InventoryEntryString;
 
     [SerializeField] string itemDescription; // this is the variable you will use
-    [SerializeField] string itemName;
+    public string itemName;
     [SerializeField] int itemPrice;
+    [SerializeField] Inventory itemItself;
     int noItem = 0;
 
-    [SerializeField] int HPChange;
-    [SerializeField] int muscleChange;
-    [SerializeField] int reflexChange;
-    [SerializeField] int smartsChange;
-    [SerializeField] int magicsChange;
+    public int HPChange;
+    public int muscleChange;
+    public int reflexChange;
+    public int smartsChange;
+    public int magicsChange;
 
     AudioSource source; // nickname for the text sound effect
 
@@ -97,7 +98,7 @@ public class Inventory : MonoBehaviour, IPointerClickHandler
         noItem += 1;
         GotItemAudio();
 
-        inventory.ItemInInventory(itemDescription, itemName, itemPrice, noItem);
+        inventory.ItemInInventory(itemDescription, itemName, itemPrice, noItem, itemItself);
     }
 
     public void GotItemAudio()
