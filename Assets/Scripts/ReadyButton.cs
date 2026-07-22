@@ -22,15 +22,17 @@ public class ReadyButton : MonoBehaviour
         character2.GetReady();
         character3.GetReady();
         actions.AddOptions();
+        eventManager.Continue();
+        this.gameObject.SetActive(false);
 
-        NextSection();
+     // NextSection();
 
         //eventManager.Continue();
     }
 
-    public void NextSection()
-    {
-        nextsection.PopupIN();
-    }
+ // public void NextSection()
+ //  {
+  //     nextsection.PopupIN();
+  // }
 
 }

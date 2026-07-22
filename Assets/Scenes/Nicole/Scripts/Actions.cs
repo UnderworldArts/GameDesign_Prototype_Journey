@@ -11,7 +11,7 @@ public class Actions : MonoBehaviour
     [SerializeField] TextBox textbox; // references the text box script through the editor so your string variable can be brought over into the function
     string ForTextBox; // leave this blank
 
-    bool CanRest = true;
+    //bool CanRest = true;
     //bool CanAbility = true;
 
     [SerializeField] TMP_Dropdown CharacterSelect;
@@ -19,6 +19,7 @@ public class Actions : MonoBehaviour
     public CharacterStats Activecharacter;
 
     [SerializeField] Inventory2 inventory;
+    [SerializeField] static EventScript EventScript;
 
     public void AddOptions()
     {
@@ -31,9 +32,9 @@ public class Actions : MonoBehaviour
             partyStats[i].IndexList = index;
         }
 
-        CharacterSelect.value = 0;
-        inventory.UseOnOptions(partyStats);
-        inventory.SetPartyNames(partyStats);
+        //CharacterSelect.value = 0;
+       // inventory.UseOnOptions(partyStats);
+      //  inventory.SetPartyNames(partyStats);
     }
 
     public void RemoveDeadCharacter(Character chosenCharacter, int IndexList)
@@ -57,7 +58,7 @@ public class Actions : MonoBehaviour
         {
             //Debug.Log("Rest");
             // logic for resting, cannot rest when there are enemies, resting allows character to use ability
-            if (CanRest)
+            if (EventScript.CanRest)
             {
                 ForTextBox = Activecharacter.IndexList + ": " + Activecharacter.characterClass + " rests. You can now use " + Activecharacter.IndexList + ": " + Activecharacter.characterClass + "'s ability again.";
                 textbox.ShowText(ForTextBox);

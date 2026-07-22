@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class EventScript : MonoBehaviour
 {
@@ -19,34 +20,44 @@ public class EventScript : MonoBehaviour
     [SerializeField] string EventStartText; // this is the variable you will use
     [SerializeField] string EventSuccessText;
     [SerializeField] string EventFailText;
+    [SerializeField] Actions Actions;
+    [SerializeField] public bool CanRest;
+    [SerializeField] Button ContinueEvent;
+    [SerializeField] Button NextEvent;
+    public static bool CanCont;
+    public static bool CanNext;
     private bool EventDone;
+
+
+    private void Update()
+    {
+        if (CanCont)
+        {
+
+            Event();
+
+        }
+        if (CanNext)
+
+        {
+            EventFinish();
+        }
+    }
+
+ 
     void Start()
     {
+    
+
         EventDone = false;
         textbox.TextClear();
         ForTextBox = EventStartText;
         textbox.ShowText(ForTextBox);
-
+     
         Debug.Log("Void Start");
-    }
-    void Update()
-    {
-        //Debug.Log("Event Start is working");
-       if (Input.GetKey(KeyCode.G))
-        {
-            Event();
-        }
-        if (Input.GetKeyDown(KeyCode.F) && EventDone == true)
-        {
-            object value = EventManager.EventCount += 1;
-            EventManager.Events.Remove(this.gameObject);
-           
-            EventManager.Continue();
-          
-            Debug.Log("EventDone - " + gameObject.name);
-            Destroy(this.gameObject);
-        }
-    }
+    } 
+   
+
     public void Event() //If the event calls for a strength check for eg, only give the enemy a strength number >0. all others stay as 0 so the characters automatically win in that stat.
     {
         Debug.Log("Event is working");
@@ -67,6 +78,10 @@ public class EventScript : MonoBehaviour
         ForTextBox = EventSuccessText;
         textbox.ShowText(ForTextBox);
         EventDone = true;
+        CanRest = true;
+        ContinueEvent.gameObject.SetActive(false);
+        NextEvent.gameObject.SetActive(true);
+        CanCont = false;
        
     }
 
@@ -77,10 +92,24 @@ public class EventScript : MonoBehaviour
         textbox.ShowText(ForTextBox);
         CharacterStats.currentHealth -= DamageTaken; //if damage is dealt. leave DamageTaken as 0 if situation doesnt call for it
         EventDone = true;
-        
+        CanRest = true;
+        ContinueEvent.gameObject.SetActive(false);
+        NextEvent.gameObject.SetActive(true);
+       
+        CanCont = false;
     }
 
-
+ public void EventFinish()
+    {
+        textbox.TextClear();
+        object value = EventManager.EventCount += 1;
+            EventManager.Events.Remove(this.gameObject);
+           
+            EventManager.Continue();
+          CanNext = false;
+            Debug.Log("EventDone - " + gameObject.name);
+            Destroy(this.gameObject);
+    }
 
 
 }
