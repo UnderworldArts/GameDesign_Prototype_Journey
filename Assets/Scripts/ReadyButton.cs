@@ -22,7 +22,7 @@ public class ReadyButton : MonoBehaviour
         character2.GetReady();
         character3.GetReady();
         actions.AddOptions();
-        eventManager.Continue();
+        //eventManager.Continue();
         this.gameObject.SetActive(false);
 
      // NextSection();

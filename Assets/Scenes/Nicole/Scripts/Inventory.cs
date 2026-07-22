@@ -32,6 +32,15 @@ public class Inventory : MonoBehaviour, IPointerClickHandler
         source = GetComponent<AudioSource>(); // assigns as the audiosource from the game object the script is on
     }
 
+     public void ActivatePause()
+    {
+        textbox.Pause = true;
+        textbox.PauseHint();
+
+        ForTextBox = "Welcome to our lovely store! (Hover over item for more information, right-click item to purchase it.)";
+        textbox.ShowText(ForTextBox);
+    }
+
     void OnMouseEnter()
     {
         // Debug.Log("In");

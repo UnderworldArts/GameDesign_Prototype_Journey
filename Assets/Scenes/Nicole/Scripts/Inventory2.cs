@@ -11,10 +11,10 @@ public class Inventory2 : MonoBehaviour
     [SerializeField] TextMeshProUGUI inventoryContentText; // the text game object itself
     [SerializeField] TextMeshProUGUI inventoryContentTextSHOP; // the text game object itself
 
-    public List<string> inventoryContent = new List<string>();
     public List<InventoryItem> inventoryItems = new List<InventoryItem>();
     string inventoryStrings = "";
     int NextIndexinventoryItems = 0;
+    List<InventoryItem> removinginventoryItem;
 
     public int inventorySpace = 20;
     string SpaceText;
@@ -34,6 +34,9 @@ public class Inventory2 : MonoBehaviour
     [SerializeField] TMP_Dropdown UseOn;
     CharacterStats UseOnCharacter;
     Inventory ToUseItem;
+    string ToUseItemNameItem;
+    int ToUseItemCountItem;
+    int ToUseItemListEntry;
     bool useCharacter = false;
     bool useItem = false;
 
@@ -82,10 +85,9 @@ public class Inventory2 : MonoBehaviour
         for(int i = 0; i < partyStats.Count; i++)
         { 
             int index = i;
+            partyStats[i].IndexList = index;
             index += 1;
             PartyNames.text += "\n" + index + ": " + partyStats[i].characterClass;
-
-            partyStats[i].IndexList = index;
         }
     }
 
@@ -122,7 +124,7 @@ public class Inventory2 : MonoBehaviour
                 item.itemItself = itemItself;
                 inventoryItems.Add(item);
 
-                inventoryContent.Add(inventoryItems[NextIndexinventoryItems].CountItem + " " + inventoryItems[NextIndexinventoryItems].NameItem);
+                //inventoryContent.Add(inventoryItems[NextIndexinventoryItems].CountItem + " " + inventoryItems[NextIndexinventoryItems].NameItem);
                 string AddtoInventoryStrings = inventoryItems[NextIndexinventoryItems].CountItem + " " + inventoryItems[NextIndexinventoryItems].NameItem;
                 inventoryStrings += "\n" + AddtoInventoryStrings;
 
@@ -155,6 +157,10 @@ public class Inventory2 : MonoBehaviour
                     {
                         Debug.Log(inventoryItems[i].itemItself.itemName + " matches " + userItemText);
                         ToUseItem = inventoryItems[i].itemItself;
+
+                        ToUseItemNameItem = inventoryItems[i].NameItem;
+                        ToUseItemCountItem = inventoryItems[i].CountItem;
+                        ToUseItemListEntry = i;
                     }
                 }
             }
@@ -173,7 +179,7 @@ public class Inventory2 : MonoBehaviour
     {
         int SelectioninIndex = UseOn.value;
         UseOnCharacter = actions.partyStats[SelectioninIndex];
-        Debug.Log(UseOnCharacter);
+        //Debug.Log(UseOnCharacter);
 
         useCharacter = true;
         CheckForUseItem();
@@ -181,28 +187,146 @@ public class Inventory2 : MonoBehaviour
 
     public void CheckForUseItem()
     {
-        Debug.Log("Check for use item");
+        //Debug.Log("Check for use item");
         // remove one entry from the list
         if (useItem)
         {
             if (useCharacter)
             {
-                if (UseOnCharacter.muscle < 10)
+                ForTextBox = actions.Activecharacter.IndexList + ": " + actions.Activecharacter.characterClass + " uses " + userItemText + " on " + + UseOnCharacter.IndexList + ": " + UseOnCharacter.characterClass + "!";
+                bool Statshavechanged = false;
+
+                if (ToUseItem.muscleChange > 0)
                 {
-                    int muscleNEW = UseOnCharacter.muscle;
-                    muscleNEW =+ ToUseItem.muscleChange;
-                    UseOnCharacter.muscle = muscleNEW;
-                    Debug.Log(UseOnCharacter.muscle);
+                    if (UseOnCharacter.muscle < 10)
+                    {
+                        Debug.Log(UseOnCharacter.muscle);
+
+                        UseOnCharacter.muscle += ToUseItem.muscleChange;
+                        if (UseOnCharacter.muscle > 10)
+                        {
+                            UseOnCharacter.muscle = 10;
+                        }
+
+                        Debug.Log(UseOnCharacter.muscle);
+                        ForTextBox += " " + UseOnCharacter.IndexList + ": " + UseOnCharacter.characterClass + "'s muscle has increased to " + UseOnCharacter.muscle + "!";
+
+                        Statshavechanged = true;
+                    }
                 }
-                UseOnCharacter.muscle += ToUseItem.muscleChange;
-                UseOnCharacter.relfex += ToUseItem.reflexChange;
-                UseOnCharacter.smarts += ToUseItem.smartsChange;
-                UseOnCharacter.magics += ToUseItem.magicsChange;
+                if (ToUseItem.reflexChange > 0)
+                {
+                    if (UseOnCharacter.relfex < 10)
+                    {
+                        Debug.Log(UseOnCharacter.relfex);
 
-                //UseOnCharacter.maxhealth += ;
-                //UseOnCharacter.currentHealth = .HPChange;
+                        UseOnCharacter.relfex += ToUseItem.reflexChange;
+                        if (UseOnCharacter.relfex > 10)
+                        {
+                            UseOnCharacter.relfex = 10;
+                        }
 
-                ForTextBox = actions.Activecharacter + " uses " + userItemText + " on " + UseOnCharacter + "!";
+                        Debug.Log(UseOnCharacter.relfex);
+                        ForTextBox += " " + UseOnCharacter.IndexList + ": " + UseOnCharacter.characterClass + "'s reflexes have increased to " + UseOnCharacter.relfex + "!";
+
+                        Statshavechanged = true;
+                    }
+                }
+                if (ToUseItem.smartsChange > 0)
+                {
+                    if (UseOnCharacter.smarts < 10)
+                    {
+                        Debug.Log(UseOnCharacter.smarts);
+
+                        UseOnCharacter.smarts += ToUseItem.smartsChange;
+                        if (UseOnCharacter.smarts > 10)
+                        {
+                            UseOnCharacter.smarts = 10;
+                        }
+
+                        Debug.Log(UseOnCharacter.smarts);
+                        ForTextBox += " " + UseOnCharacter.IndexList + ": " + UseOnCharacter.characterClass + "'s smarts have increased to " + UseOnCharacter.smarts + "!";
+
+                        Statshavechanged = true;
+                    }
+                }
+                if (ToUseItem.magicsChange > 0)
+                {
+                    if (UseOnCharacter.magics < 10)
+                    {
+                        Debug.Log(UseOnCharacter.magics);
+
+                        UseOnCharacter.magics += ToUseItem.magicsChange;
+                        if (UseOnCharacter.magics > 10)
+                        {
+                            UseOnCharacter.magics = 10;
+                        }
+
+                        Debug.Log(UseOnCharacter.magics);
+                        ForTextBox += " " + UseOnCharacter.IndexList + ": " + UseOnCharacter.characterClass + "'s magics have increased to " + UseOnCharacter.magics + "!";
+
+                        Statshavechanged = true;
+                    }
+                }
+                if (ToUseItem.HPChange > 0)
+                {
+                    if (UseOnCharacter.currentHealth != UseOnCharacter.maxHealth)
+                    {
+                        Debug.Log(UseOnCharacter.currentHealth);
+
+                        UseOnCharacter.currentHealth += ToUseItem.HPChange;
+                        if (UseOnCharacter.currentHealth > UseOnCharacter.maxHealth)
+                        {
+                            UseOnCharacter.currentHealth = UseOnCharacter.maxHealth;
+                        }
+
+                        Debug.Log(UseOnCharacter.currentHealth);
+                        ForTextBox += " " + UseOnCharacter.IndexList + ": " + UseOnCharacter.characterClass + "'s HP has increased to " + UseOnCharacter.currentHealth + "/" + "UseOnCharacter.maxHealth" + "!";
+
+                        Statshavechanged = true;
+                    }
+                }
+
+                if (!Statshavechanged)
+                {
+                    ForTextBox += " But none of " + UseOnCharacter.IndexList + ": " + UseOnCharacter.characterClass + "'s stats have increased :(";
+                }
+
+                string temporaryOLDCountItem = ToUseItemCountItem + " " + ToUseItemNameItem;
+                ToUseItemCountItem -= 1;
+
+                foreach (InventoryItem item in inventoryItems)
+                {
+                    for (int i = 0; i < inventoryItems.Count; i++)
+                    {
+                        if (i == ToUseItemListEntry)
+                        {
+                            inventoryItems[i].CountItem -= 1;
+                            if (inventoryItems[i].CountItem == 0)
+                            {
+                                //inventoryItems.Remove(inventoryItems[i]);
+                                removinginventoryItem.Add(inventoryItems[i]);
+
+                                string temporaryNEWCountItem = "";
+                                inventoryStrings = inventoryStrings.Replace(temporaryOLDCountItem, temporaryNEWCountItem);
+                                inventoryContentText.text = inventoryStrings;
+                            }
+                            else
+                            {
+                                string temporaryNEWCountItem = ToUseItemCountItem + " " + ToUseItemNameItem;        
+                                inventoryStrings = inventoryStrings.Replace(temporaryOLDCountItem, temporaryNEWCountItem);
+                                inventoryContentText.text = inventoryStrings;
+                            }
+                        }
+                    }
+                }
+
+                inventoryItems.Remove(removinginventoryItem[0]);
+
+                inventorySpace += 1;
+                inputfield.text = "";
+                UseOn.value = 0;
+
                 textbox.ShowText(ForTextBox);
             }
         }
