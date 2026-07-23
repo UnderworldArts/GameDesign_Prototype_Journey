@@ -68,6 +68,11 @@ public class Inventory2 : MonoBehaviour
         inventoryContentTextSHOP.text = inventoryContentText.text;
     }
 
+    public void StopPause()
+    {
+        textbox.Pause = false;
+    }
+
     public void UseOnOptions(List<CharacterStats> partyStats)
     {
         for(int i = 0; i < partyStats.Count; i++)
@@ -285,6 +290,18 @@ public class Inventory2 : MonoBehaviour
 
                         Statshavechanged = true;
                     }
+                }
+                if (ToUseItem.maxHealthChange > 0)
+                {
+                    Debug.Log(UseOnCharacter.maxHealth);
+
+                    UseOnCharacter.maxHealth += ToUseItem.maxHealthChange;
+                    UseOnCharacter.currentHealth += ToUseItem.maxHealthChange;
+
+                    Debug.Log(UseOnCharacter.maxHealth);
+                    ForTextBox += " " + UseOnCharacter.IndexList + ": " + UseOnCharacter.characterClass + "'s max health has increased to " + UseOnCharacter.maxHealth + "!";
+
+                    Statshavechanged = true;
                 }
 
                 if (!Statshavechanged)

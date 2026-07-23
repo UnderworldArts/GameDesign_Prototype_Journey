@@ -10,7 +10,6 @@ public class Inventory : MonoBehaviour, IPointerClickHandler
     string ForTextBox; // leave this blank
 
     [SerializeField] Inventory2 inventory;
-    public string InventoryEntryString;
 
     [SerializeField] string itemDescription; // this is the variable you will use
     public string itemName;
@@ -23,6 +22,7 @@ public class Inventory : MonoBehaviour, IPointerClickHandler
     public int reflexChange;
     public int smartsChange;
     public int magicsChange;
+    public int maxHealthChange;
 
     AudioSource source; // nickname for the text sound effect
 
