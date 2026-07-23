@@ -32,6 +32,7 @@ public class Menus : MonoBehaviour
 
     public void PopupIN()
     {
+        this.gameObject.SetActive(true);
         Debug.Log("Pop up comes up!");
         if (anim == null)
         return;
@@ -50,6 +51,7 @@ public class Menus : MonoBehaviour
         anim.SetBool("In", false);
         onScreen = false;
         OpenAudio();
+        
     }
 
     public void OpenAudio()

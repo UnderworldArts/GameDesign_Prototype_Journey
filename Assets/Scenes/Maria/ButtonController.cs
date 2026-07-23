@@ -24,5 +24,8 @@ public class ButtonController : MonoBehaviour
         EventScript.CanNext = true;
     }
 
-
+    public void EnterBG()
+    {
+        gameObject.SetActive(true); 
+    }
 }
