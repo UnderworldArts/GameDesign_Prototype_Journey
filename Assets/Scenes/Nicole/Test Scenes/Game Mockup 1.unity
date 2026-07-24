@@ -3939,7 +3939,7 @@ MonoBehaviour:
   EventStartText: wow an event
   EventSuccessText: yay you dd it
   EventFailText: lol u died
-  Actions: {fileID: 1334348026}
+  Actions: {fileID: 282925690}
   CanRest: 0
   ContinueEvent: {fileID: 429846417}
   NextEvent: {fileID: 511218178}
@@ -16053,58 +16053,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326623220}
   m_CullTransparentMesh: 1
---- !u!1 &1334348025
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1334348027}
-  - component: {fileID: 1334348026}
-  m_Layer: 0
-  m_Name: DELETE NOW
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1334348026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334348025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22289a7f2f5d188499c72976f350ca2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Actions
-  menus: {fileID: 1360741574}
-  inventorymenus: {fileID: 529839919}
-  readybutton: {fileID: 603762660}
-  textbox: {fileID: 1794757145}
-  CharacterSelect: {fileID: 1323961026}
-  partyStats: []
-  Activecharacter: {fileID: 0}
-  inventory: {fileID: 1204435578}
---- !u!4 &1334348027
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334348025}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.60022, y: -0.02907, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345638702
 GameObject:
   m_ObjectHideFlags: 0
@@ -23609,7 +23557,6 @@ SceneRoots:
   - {fileID: 122607399}
   - {fileID: 1131625826}
   - {fileID: 1554436965}
-  - {fileID: 1334348027}
   - {fileID: 1323943654}
   - {fileID: 294588491}
   - {fileID: 2129820935}

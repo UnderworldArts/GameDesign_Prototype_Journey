@@ -34,12 +34,14 @@ public class EventScript : MonoBehaviour
         if (CanCont)
         {
             Debug.Log("CanCont is cancont");
+            CanCont = false;
             Event();
 
         }
         if (CanNext)
 
         {
+            CanNext = false;
             EventFinish();
         }
     }
@@ -105,7 +107,7 @@ public class EventScript : MonoBehaviour
         textbox.TextClear();
         ForTextBox = EventFailText;
         textbox.ShowText(ForTextBox);
-        CharacterStats.currentHealth -= DamageTaken; //if damage is dealt. leave DamageTaken as 0 if situation doesnt call for it
+       // CharacterStats.currentHealth -= DamageTaken; //if damage is dealt. leave DamageTaken as 0 if situation doesnt call for it
         EventDone = true;
         CanRest = true;
         ContinueEvent.gameObject.SetActive(false);
