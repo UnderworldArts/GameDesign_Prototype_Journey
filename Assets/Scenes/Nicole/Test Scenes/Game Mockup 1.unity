@@ -3789,7 +3789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1177, y: -210}
+  m_AnchoredPosition: {x: -729.6401, y: 182.69998}
   m_SizeDelta: {x: -1555.85, y: -441.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282925686
@@ -15555,6 +15555,7 @@ MonoBehaviour:
   - {fileID: 294588489}
   ContinueEvent: {fileID: 429846417}
   NextEvent: {fileID: 511218178}
+  UiButtons: {fileID: 282925684}
 --- !u!4 &1323943654
 Transform:
   m_ObjectHideFlags: 0
@@ -15842,7 +15843,7 @@ MonoBehaviour:
   menus: {fileID: 1360741574}
   inventorymenus: {fileID: 529839919}
   readybutton: {fileID: 603762660}
-  textbox: {fileID: 0}
+  textbox: {fileID: 1794757145}
   CharacterSelect: {fileID: 1323961026}
   partyStats: []
   Activecharacter: {fileID: 0}

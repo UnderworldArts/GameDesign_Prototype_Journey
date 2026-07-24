@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
     public List<GameObject> Events;
     [SerializeField] Button ContinueEvent;
     [SerializeField] Button NextEvent;
+    [SerializeField] GameObject UiButtons;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class EventManager : MonoBehaviour
         }
         if (EventCount != 5)//selects a random gameobject and activates it
        {
+            UiButtons.gameObject.SetActive(true);
             ContinueEvent.gameObject.SetActive(true);
             NextEvent.gameObject.SetActive(false);
             Debug.Log("Event started");
