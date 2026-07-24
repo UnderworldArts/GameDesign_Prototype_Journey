@@ -16,6 +16,7 @@ public class ButtonController : MonoBehaviour
 
     public void ContButton()
     {
+        Debug.Log("Cont is pressed");
         EventScript.CanCont = true;
     }
 
